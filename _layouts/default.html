@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %}</title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <link rel="icon" href="{{ "/assets/images/favicon.png" | prepend: site.baseurl }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.baseurl }}/feed.xml" />
+
+    <link rel="stylesheet" href="{{ "/assets/css/application.css" | prepend: site.baseurl }}" />
+    <link rel="stylesheet" href="{{ "/assets/css/prism.css" | prepend: site.baseurl }}" />
+</head>
+<body>
+<nav class="nav has-shadow">
+    <div class="container is-fluid">
+        <div class="nav-left nav-brand">
+            <a href="{{ "/" | prepend: site.baseurl }}" class="nav-item">
+            {{ site.name }}
+            </a>
+        </div>
+        <div class="nav-center">
+            {% if site.social.github %}
+            <a href="https://github.com/{{ site.social.github }}" class="nav-item">
+            <span class="icon">
+                <i class="fa fa-github"></i>
+            </span>
+            </a>
+            {% endif %}
+            {% if site.social.email %}
+            <a href="mailto:{{ site.social.email }}" class="nav-item">
+            <span class="icon">
+                <i class="fa fa-envelope-o"></i>
+            </span>
+            </a>
+            {% endif %}
+            {% if site.social.facebook %}
+            <a href="https://facebook.com/{{ site.social.facebook }}" class="nav-item">
+            <span class="icon">
+                <i class="fa fa-facebook"></i>
+            </span>
+            </a>
+            {% endif %}
+            {% if site.social.twitter %}
+            <a href="https://twitter.com/{{ site.social.twitter }}" class="nav-item">
+            <span class="icon">
+                <i class="fa fa-twitter"></i>
+            </span>
+            </a>
+            {% endif %}
+            {% if site.social.instagram %}
+            <a href="https://instagram.com/{{ site.social.instagram }}" class="nav-item">
+            <span class="icon">
+                <i class="fa fa-instagram"></i>
+            </span>
+            </a>
+            {% endif %}
+            {% if site.social.tumblr %}
+            <a href="https://{{ site.social.tumblr }}.tumblr.com" class="nav-item">
+            <span class="icon">
+                <i class="fa fa-tumblr"></i>
+            </span>
+            </a>
+            {% endif %}
+        </div>
+        <span class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+        <div class="nav-right nav-menu">
+            <a href="{{ "/" | prepend: site.baseurl }}" class="nav-item {% if page.url == "/" %} is-active {% endif %}">
+            Blog
+            </a>
+            <a href="{{ "/categories.html" | prepend: site.baseurl }}" class="nav-item {% if page.url == "/categories.html" %} is-active {% endif %}">
+            Kategoriler
+            </a>
+            <div class="nav-item">
+                {% if site.social.twitter %}
+                <a href="https://twitter.com/{{ site.social.twitter }}" class="button">
+                <span class="icon">
+                    <i class="fa fa-twitter"></i>
+                </span>
+                    <span>Tweet</span>
+                </a>
+                {% endif %}
+                {% if site.download %}
+                <a href="{{ site.download }}" class="button is-primary">
+                <span class="icon">
+                    <i class="fa fa-download"></i>
+                </span>
+                    <span>Blog'u İndir</span>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>
+{{ content }}
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+            <p>
+                Theme: <strong><a href="https://github.com/erayaydin/jekyll-bulma">Jekyll Bulma</a></strong> by <a href="http://github.com/erayaydin">Eray Aydın</a>. The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+                is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
+            </p>
+            <p>
+                {% if site.social.github %}
+                <a class="icon" href="https://github.com/{{ site.social.github }}">
+                    <i class="fa fa-github"></i>
+                </a>
+                {% endif %}
+                {% if site.social.email %}
+                <a class="icon" href="mailto:{{ site.social.email }}">
+                    <i class="fa fa-envelope-o"></i>
+                </a>
+                {% endif %}
+                {% if site.social.facebook %}
+                <a class="icon" href="https://facebook.com/{{ site.social.facebook }}">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                {% endif %}
+                {% if site.social.twitter %}
+                <a class="icon" href="https://twitter.com/{{ site.social.twitter }}">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                {% endif %}
+                {% if site.social.instagram %}
+                <a class="icon" href="https://instagram.com/{{ site.social.instagram }}">
+                    <i class="fa fa-instagram"></i>
+                </a>
+                {% endif %}
+                {% if site.social.tumblr %}
+                <a class="icon" href="https://{{ site.social.tumblr }}.tumblr.com">
+                    <i class="fa fa-tumblr"></i>
+                </a>
+                {% endif %}
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script src="{{ site.baseurl }}{{ "/assets/js/jquery-3.1.1.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/assets/js/prism.js" | prepend: site.baseurl }}"></script>
+<script>
+    $('.nav-toggle').bind('click', function(){
+        var menus = $(this).siblings(".nav-menu");
+        if(menus.hasClass('is-active')){
+            menus.removeClass('is-active');
+        } else {
+            menus.addClass('is-active');
+        }
+    });
+</script>
+<script>
+(function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//aydineray.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+---
+layout: default
+type: archive
+---
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container is-fluid">
+            <h1 class="title">
+                {{ page.title }}
+            </h1>
+            <h2 class="subtitle">
+                {{ page.description }}
+            </h2>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container is-fluid">
+        {% for post in site.categories[page.category] %}
+        <div class="card post-card">
+            {% if post.thumbnail %}
+            <div class="card-image">
+                <figure class="image">
+                    <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+                        <img src="http://placehold.it/1900x300" alt="{{ post.title }}">
+                    </a>
+                </figure>
+            </div>
+            {% endif %}
+            <div class="card-content">
+                <h3 class="post-title"><a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+                <p class="post-categories">
+                    {% for category in post.categories %}
+                    <a href="/{{ category | prepend: site.baseurl }}" class="tag {% if site.data.category[category].color %} is-{{ site.data.category[category].color }} {% endif %}">{{ category }}</a>
+                    {% endfor %}
+                </p>
+                {{ post.excerpt }}
+                <p><small>02.02.2017 - 06:36</small></p>
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+        <nav class="pagination is-centered">
+            <a {% if paginator.previous_page %}href="..{{  paginator.previous_page_path }}"{% endif %} class="pagination-previous {% if paginator.previous_page %}{% else %} is-disabled {% endif %}">Önceki Yazılar</a>
+            <a {% if paginator.next_page %}href="..{{  paginator.next_page_path }}"{% endif %} class="pagination-next {% if paginator.next_page %}{% else %} is-disabled {% endif %}">Sonraki Yazılar</a>
+            <ul class="pagination-list">
+                {% for page in (1..paginator.total_pages) %}
+                <li>
+                    <a {% if page == paginator.page %}{% else %} href="{% if page == 1 %}../{% else %}{% if paginator.page != 1 %}../{% endif %}{{ page }}{% endif %}" {% endif %} class="pagination-link {% if page == paginator.page %} is-current {% endif %}">{{ page }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</section>

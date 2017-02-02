@@ -1,0 +1,43 @@
+---
+layout: default
+---
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container is-fluid">
+            <h1 class="title">
+                Blog Kategorileri
+            </h1>
+            <h2 class="subtitle">
+
+            </h2>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container is-fluid">
+        <div class="columns is-multiline">
+            {% for keypair in site.categories %}
+            {% assign category = keypair | first%}
+            <div class="column is-3">
+                <div class="panel">
+                    <p class="is-marginless">
+                        <a class="image is-16by9" href="{{ category | prepend: baseurl }}">
+                            <img class="" src="{% if site.data.category[category] %}{% if site.data.category[category].image %}{{ site.data.category[category].image }}{% else %}http://placehold.it/300x300?text={{ category }}{% endif %}{% else %}http://placehold.it/300x300?text={{category}}{% endif %}" style="display: block; width: 100%;" />
+                        </a>
+                    </p>
+                    <div class="panel-block">
+                        <div class="column">
+                            <div class="panel-block-item" style="text-transform: uppercase;">
+                                <a href="{{ category | prepend: baseurl }}">{{ category }}</a>
+                            </div>
+                        </div>
+                        <div class="column has-text-right">
+                            <div class="panel-block-item">{{ site.categories[category] | size }} Yazı</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

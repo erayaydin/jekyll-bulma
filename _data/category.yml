@@ -1,0 +1,12 @@
+jekyll:
+  name: jekyll
+  image: /assets/images/categories/jekyll.png
+  color: info
+post:
+  name: Post
+  image: /assets/images/categories/post.png
+  color: success
+markup:
+  name: Markup
+  image: /assets/images/categories/markup.png
+  color: primary
