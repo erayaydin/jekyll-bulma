@@ -21,14 +21,14 @@ layout: default
             <div class="column is-3">
                 <div class="panel">
                     <p class="is-marginless">
-                        <a class="image is-16by9" href="{{ category | prepend: baseurl }}">
+                        <a class="image is-16by9" href="{{ category | prepend: site.baseurl }}">
                             <img class="" src="{% if site.data.category[category] %}{% if site.data.category[category].image %}{{ site.data.category[category].image }}{% else %}http://placehold.it/300x300?text={{ category }}{% endif %}{% else %}http://placehold.it/300x300?text={{category}}{% endif %}" style="display: block; width: 100%;" />
                         </a>
                     </p>
                     <div class="panel-block">
                         <div class="column">
                             <div class="panel-block-item" style="text-transform: uppercase;">
-                                <a href="{{ category | prepend: baseurl }}">{{ category }}</a>
+                                <a href="{{ category | prepend: site.baseurl }}">{{ category }}</a>
                             </div>
                         </div>
                         <div class="column has-text-right">
