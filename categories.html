@@ -8,36 +8,25 @@ layout: default
                 Blog Kategorileri
             </h1>
             <h2 class="subtitle">
-
+                Kategorilendirilmiş makaleleri inceleyin.
             </h2>
         </div>
     </div>
 </section>
 <section class="section">
     <div class="container is-fluid">
-        <div class="columns is-multiline">
-            {% for keypair in site.categories %}
-            {% assign category = keypair | first%}
-            <div class="column is-3">
-                <div class="panel">
-                    <p class="is-marginless">
-                        <a class="image is-16by9" href="{{ category | prepend: "/" | prepend: site.baseurl }}">
-                            <img class="" src="{% if site.data.category[category] %}{% if site.data.category[category].image %}{{ site.data.category[category].image | prepend: "/" | prepend: site.baseurl }}{% else %}http://placehold.it/300x300?text={{ category }}{% endif %}{% else %}http://placehold.it/300x300?text={{category}}{% endif %}" style="display: block; width: 100%;" />
-                        </a>
-                    </p>
-                    <div class="panel-block">
-                        <div class="column">
-                            <div class="panel-block-item" style="text-transform: uppercase;">
-                                <a href="{{ category | prepend: "/" | prepend: site.baseurl }}">{{ category }}</a>
-                            </div>
-                        </div>
-                        <div class="column has-text-right">
-                            <div class="panel-block-item">{{ site.categories[category] | size }} Yazı</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <aside class="menu">
+            {% for category in site.categories %}
+            {% capture category_name %}{{ category | first }}{% endcapture %}
+            <p class="menu-label" id="category-{{ category | first | slugize }}">
+                {{ category | first }}
+            </p>
+            <ul class="menu-list">
+                {% for post in site.categories[category_name] %}
+                <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+                {% endfor %}
+            </ul>
             {% endfor %}
-        </div>
+        </aside>
     </div>
 </section>

@@ -2,7 +2,7 @@
 layout: post
 title: Markup - HTML Tags and Formatting
 categories:
-    - markup
+    - Markup
 comments: true
 permalink: html-tags-formatting.html
 ---

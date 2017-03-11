@@ -2,7 +2,7 @@
 layout: post
 title: Post - Youtube Embed
 categories:
-    - post
+    - Post
 comments: true
 permalink: youtube-embed.html
 ---

@@ -21,7 +21,7 @@ author:
   instagram:
   tumblr:
   show_on_post: true
-
+permalink: /:categories/:title/
 sass:
   style: compressed
 paginate: 5

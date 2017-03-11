@@ -44,9 +44,9 @@ layout: default
             <a {% if paginator.next_page %}href="..{{  paginator.next_page_path }}"{% endif %} class="pagination-next {% if paginator.next_page %}{% else %} is-disabled {% endif %}">Sonraki Yazılar</a>
             <ul class="pagination-list">
                 {% for page in (1..paginator.total_pages) %}
-                    <li>
-                        <a {% if page == paginator.page %}{% else %} href="{% if page == 1 %}../{% else %}{% if paginator.page != 1 %}../{% endif %}{{ page }}{% endif %}" {% endif %} class="pagination-link {% if page == paginator.page %} is-current {% endif %}">{{ page }}</a>
-                    </li>
+                <li>
+                    <a {% if page == paginator.page %}{% else %} href="{% if page == 1 %}../{% else %}{% if paginator.page != 1 %}../{% endif %}{{ page }}{% endif %}" {% endif %} class="pagination-link {% if page == paginator.page %} is-current {% endif %}">{{ page }}</a>
+                </li>
                 {% endfor %}
             </ul>
         </nav>

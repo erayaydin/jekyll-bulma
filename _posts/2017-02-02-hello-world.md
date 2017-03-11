@@ -3,7 +3,7 @@ layout: post
 title: Welcome to Jekyll!
 description: Description of the post.
 categories:
-    - jekyll
+    - Jekyll
 comments: true
 permalink: welcome-to-jekyll.html
 ---
