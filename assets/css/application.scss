@@ -1,18 +1,18 @@
 ---
 ---
 // Imports
-@import "variables";
+@import 'variables';
 
 // Bulma.io CSS Framework
-@import "bulma/utilities/_all";
-@import "bulma/base/_all";
-@import "bulma/elements/_all";
-@import "bulma/components/_all";
-@import "bulma/grid/_all";
-@import "bulma/layout/_all";
+@import 'bulma/utilities/all';
+@import 'bulma/base/all';
+@import 'bulma/elements/all';
+@import 'bulma/components/all';
+@import 'bulma/grid/all';
+@import 'bulma/layout/all';
 
 // Font-Awesome
-@import "font-awesome/font-awesome.scss";
+@import 'font-awesome/font-awesome';
 
 // Custom
 .nav-brand {
@@ -20,9 +20,11 @@
 }
 
 .post-card {
+
   .post-title {
     font-size: 1.6em;
   }
+
   .post-categories {
     margin-bottom: 5px;
   }
