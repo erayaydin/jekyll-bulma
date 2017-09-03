@@ -1,21 +1,18 @@
 ---
+# Only the main Sass file needs front matter (the dashes are enough)
 ---
 // Imports
 @import 'variables';
 
 // Bulma.io CSS Framework
-@import 'bulma/utilities/all';
-@import 'bulma/base/all';
-@import 'bulma/elements/all';
-@import 'bulma/components/all';
-@import 'bulma/grid/all';
-@import 'bulma/layout/all';
+@import 'bulma';
+
 
 // Font-Awesome
 @import 'font-awesome/font-awesome';
 
 // Custom
-.nav-brand {
+.navbar-brand {
   font-weight: bold;
 }
 
