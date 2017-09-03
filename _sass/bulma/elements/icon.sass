@@ -1,12 +1,29 @@
+$icon-dimensions: 1.5rem !default
+$icon-dimensions-small: 1rem !default
+$icon-dimensions-medium: 2rem !default
+$icon-dimensions-large: 3rem !default
+
 .icon
-  +fa(21px, 1.5rem)
+  align-items: center
+  display: inline-flex
+  justify-content: center
+  height: $icon-dimensions
+  width: $icon-dimensions
   .fa
-    font-size: inherit
-    line-height: inherit
+    font-size: 21px
   // Sizes
   &.is-small
-    +fa(14px, 1rem)
+    height: $icon-dimensions-small
+    width: $icon-dimensions-small
+    .fa
+      font-size: 14px
   &.is-medium
-    +fa(28px, 2rem)
+    height: $icon-dimensions-medium
+    width: $icon-dimensions-medium
+    .fa
+      font-size: 28px
   &.is-large
-    +fa(42px, 3rem)
+    height: $icon-dimensions-large
+    width: $icon-dimensions-large
+    .fa
+      font-size: 42px
