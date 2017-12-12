@@ -28,7 +28,7 @@ paginate: 5
 paginate_path: "/:num/"
 markdown: kramdown
 
-gems:
+plugins:
   - jekyll-paginate
   - jekyll-feed
   - jekyll-gist
@@ -39,3 +39,4 @@ exclude:
   - README.md
   - LICENSE
   - CNAME
+  - vendor
